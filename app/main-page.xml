@@ -1,0 +1,25 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="SQL Database Demo" />
+    
+    <StackLayout class="p-4">
+        <GridLayout rows="auto, auto" columns="*, *" class="mb-4">
+            <TextField row="0" col="0" colSpan="2" hint="Name" text="{{ userName }}" class="mb-2 p-2 border rounded" />
+            <TextField row="1" col="0" colSpan="2" hint="Email" text="{{ userEmail }}" class="mb-2 p-2 border rounded" />
+        </GridLayout>
+
+        <Button text="Add User" tap="{{ onAddUser }}" class="mb-4 bg-blue-500 text-white p-2 rounded" />
+
+        <ListView items="{{ users }}" class="list-group" height="60%">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto" class="list-group-item p-2">
+                    <StackLayout col="0">
+                        <Label text="{{ name }}" class="font-bold" />
+                        <Label text="{{ email }}" class="text-gray-600" />
+                    </StackLayout>
+                    <Button col="1" text="Delete" tap="{{ $parent.onDeleteUser }}" 
+                            class="bg-red-500 text-white p-1 rounded" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </StackLayout>
+</Page>
